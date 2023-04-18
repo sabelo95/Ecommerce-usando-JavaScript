@@ -1,0 +1,315 @@
+.nav-superior{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.div-redes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-redes1{
+    display:flex;
+    justify-content: space-between;
+}
+
+.div-redes2 button{
+    height: 50px;
+}
+
+.red-icon{
+    margin: 5px;
+   
+}
+
+
+
+.menu-desplegable{
+    text-decoration: none;
+    
+}
+
+.producto{
+    color: black;
+    text-decoration: none;
+}
+
+.menu-principal{
+    display: flex;
+    flex-direction: row;
+    padding: auto;
+    justify-content: center;
+    
+}
+
+.boton-principal{
+    height: 36px;
+    margin: 10px;
+}
+
+h1{
+    text-align: center;
+}
+
+
+
+
+    
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.proteinas-grid{
+    display: grid;
+    padding: 5px;
+    width: 100%;
+    border:1px solid gray;
+    grid-template-columns: 4fr 4fr 4fr;
+    grid-template-rows: 4fr 4fr 4fr;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    text-decoration: underline;
+    
+}
+
+.proteinas-grid img{
+     height: 300px;
+     width: 300px;
+}
+
+.carousel{
+    width: 200px;
+    height: 200px;
+}
+
+.div-proteina {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(64, 63, 63);
+  }
+  
+  .div-proteina img:last-of-type {
+    opacity:0;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 150px);
+    
+  }
+  
+  .div-proteina:hover img:first-of-type {
+    opacity: 0;
+    transition: opacity 1s;
+    
+    
+  }
+  
+  .div-proteina:hover img:last-of-type {
+    opacity: 1;
+    transition: opacity 1s;
+    
+  }
+
+  .creatinas-grid{
+    display: grid;
+    padding: 5px;
+    width: 100%;
+    border:1px solid gray;
+    grid-template-columns: 4fr 4fr 4fr;
+    grid-template-rows: 4fr 4fr 4fr;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    text-decoration: underline;
+    
+}
+
+.creatinas-grid img{
+     height: 300px;
+     width: 300px;
+}
+
+.carousel{
+    width: 200px;
+    height: 200px;
+}
+
+.div-creatina {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .div-creatina img:last-of-type {
+    opacity:0;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 150px);
+    
+  }
+  
+  .div-creatina:hover img:first-of-type {
+    opacity: 0;
+    transition: opacity 1s;
+    
+    
+  }
+  
+  .div-creatina:hover img:last-of-type {
+    opacity: 1;
+    transition: opacity 1s;
+    
+  }
+
+
+  @media (max-width: 930px) {
+    .proteinas-grid{
+        display: grid;
+        padding: 5px;
+        width: 100%;
+        border:1px solid gray;
+        grid-template-columns: 6fr 6fr;
+       
+    }
+
+    .creatinas-grid{
+        display: grid;
+        padding: 5px;
+        width: 100%;
+        border:1px solid gray;
+        grid-template-columns: 6fr 6fr;
+       
+    }
+
+    @media (max-width: 630px) {
+        .proteinas-grid{
+            display: grid;
+            padding: 5px;
+            width: 100%;
+            border:1px solid gray;
+            grid-template-columns: 12fr;
+            
+        }
+
+        .div-proteina img:last-of-type {
+            opacity:0;
+            position: absolute;
+            top: 0;
+            left: calc( 50% - 150px);
+            
+          }
+
+          .creatinas-grid{
+            display: grid;
+            padding: 5px;
+            width: 100%;
+            border:1px solid gray;
+            grid-template-columns: 12fr;
+            
+        }
+
+        .div-creatina img:last-of-type {
+            opacity:0;
+            position: absolute;
+            top: 0;
+            left: calc( 50% - 150px);
+            
+          }
+    }
+    
+}
+
+.precio {
+    font-family: Arial, sans-serif; /* Fuente */
+    font-size: 1.2em; /* Tamaño */
+    font-weight: bold; /* Estilo */
+    text-transform: uppercase; /* Estilo */
+    color: #000000; /* Color (negro) */
+    text-align: center; /* Alineación */
+    margin-top: 20px; /* Margen superior */
+  }
+  
+  /*Estilos pagina de registro */
+  .body-registro {
+	background-color: white;
+	color: black;
+	font-family: Arial, sans-serif;
+}
+
+.contenedor {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.formulario {
+	padding: 20px;
+	border: 2px solid black;
+	border-radius: 10px;
+	margin: 10px;
+}
+
+.h2-registro {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.form-formulario {
+	display: flex;
+	flex-direction: column;
+}
+
+label {
+	margin-bottom: 10px;
+}
+
+
+
+.boton-registro{
+	padding: 10px;
+	background-color: black;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+footer {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .boton-footer {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+
+  
+
