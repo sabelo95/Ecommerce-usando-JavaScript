@@ -311,5 +311,42 @@ footer {
   }
   
 
+/* estilos carrito de compras */
+
+.titulo-carrito{
+  text-align: center;
+}
+
+#comprar{
+  display: block;
+  margin: 0 auto;
+}
+
+/* estilos para el formulario de crear proteinas */
+#protein-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"] {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+
+
+
   
 
