@@ -3,7 +3,7 @@
  
 function agregarTablas(){
 
-if(sessionStorage.length>1){
+if(sessionStorage.length>=1){
    for (i=0; i<=(JSON.parse(sessionStorage.getItem('carrito')).proteinas.length-1) ; i++){
     let fila= document.createElement('tr');
     let columna1=document.createElement("td");
