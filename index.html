@@ -198,7 +198,7 @@
 <script>
   document.getElementById("boton-carrito").addEventListener("click",()=>{
    
-  if (sessionStorage.length<1){
+  if (sessionStorage.length>=1){
     Swal.fire({
         title: ':( Carrito vacio)',
         text: 'Escoge una proteina :)',
