@@ -30,7 +30,7 @@
           </div>
         </div>
       </nav>
-      </nav>
+      
 	<h1 class="titulo-carrito">Carrito de compras</h1>
 	<table class="table table-bordered">
 		<thead>
@@ -43,13 +43,7 @@
 			</tr>
 		</thead>
 		<tbody id="body-tabla">
-			<tr id="producto-1">
-				<td><img style="width: 120px; height: 120px;"  src="../images/esta-vacio.jpg" alt="Imagen del producto" id="imagen-producto0"></td>
-				<td class="descripcion-producto">Descripcion del producto</td>
-				<td class="precioUnitario">$10.00</td>
-				<td class="cantidad"></td>
-				<td class="subtotal">$10.00</td>
-			</tr>
+			
 			
 			
 		</tbody>
@@ -61,98 +55,34 @@
 		</tfoot>
 	</table>
 	<button class="btn btn-dark boton-principal" id="comprar">COMPRAR</button>
-</body>
-<script>
-
-	// codigo para añadir nuevas filas a la tabla y añadir los elementos que tengo en el local storage
-
-	document.getElementById('imagen-producto0').src=JSON.parse(localStorage.getItem('ProteinaCarrito0')).imagen
-	document.getElementById("producto-1").children[1].innerHTML=JSON.parse(localStorage.getItem('ProteinaCarrito0')).name
-	document.getElementById("producto-1").children[2].innerHTML=JSON.parse(localStorage.getItem('ProteinaCarrito0')).price
-	document.getElementById("producto-1").children[3].innerHTML=parseInt(localStorage.getItem('CantidadProteina0'))
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script>
+		document.getElementById("comprar").addEventListener("click",()=>{
 	
-	function calcularPrecio(precioUnitario, cantidad) {
-  		var precioTotal = precioUnitario * cantidad;
-  		
-		return precioTotal
-  	} 
-
-	  document.getElementById("producto-1").children[4].innerHTML=precioTotal=calcularPrecio(parseInt(document.getElementById("producto-1").children[2].innerHTML),parseInt(document.getElementById("producto-1").children[3].innerHTML))
-
-	 document.getElementsByClassName('cantidad')[0].addEventListener("input",() =>{
-		document.getElementById("producto-1").children[4].innerHTML=precioTotal=calcularPrecio(parseInt(document.getElementById("producto-1").children[2].innerHTML),parseInt(document.getElementById("producto-1").children[3].innerHTML))
-	
-	 })
-	 
-   function agregarTablas(){
-
-	if(localStorage.length>3){
-	   for (i=1; i<=(localStorage.length)/3; i++){
-		var fila= document.createElement('tr');
-		var columna1=document.createElement("td");
-		var columna2=document.createElement("td");
-		var columna3=document.createElement("td");
-		var columna4=document.createElement("td");
-		var columna5=document.createElement("td");
-		columna1.innerHTML='<img style="width: 120px; height: 120px;"  src="" alt="Imagen del producto" id="imagen-producto'+i+'">'
+		sessionStorage.clear()
+		Swal.fire({
+        title: 'Genial!',
+        text: 'GRACIAS POR TU COMPRA :)',
+        icon: 'success',
+        confirmButtonText: 'Cool'
 		
-		fila.appendChild(columna1);
-		fila.appendChild(columna2);
-		fila.appendChild(columna3);
-		fila.appendChild(columna4);
-		fila.appendChild(columna5);
-		cuerpoTabla=document.getElementById("body-tabla")
-		cuerpoTabla.appendChild(fila)
-		document.getElementById('imagen-producto'+i).src=JSON.parse(localStorage.getItem('ProteinaCarrito'+i)).imagen
-		columna2.innerHTML=JSON.parse(localStorage.getItem('ProteinaCarrito'+i)).name
-		columna3.innerHTML=JSON.parse(localStorage.getItem('ProteinaCarrito'+i)).price
-		columna4.innerHTML=parseInt(localStorage.getItem('CantidadProteina'+i))
-		columna5.innerHTML=parseInt(columna3.innerHTML)*parseInt(localStorage.getItem('CantidadProteina'+i))
-		columna3.classList.add("precioUnitario")
-		columna5.classList.add("subtotal")
+		})
+
+		setTimeout(function() {
+  location.href="../index.html";
+}, 2000);
+
 		
 		
-  
-	
-		
-
-		
-
-	   }
-
-   } 
-}
-
-   
-  
-
-
-   agregarTablas()
-// calculo total del valor de los producto
-   function calculoTotal(){
-	
-	var suma=0 
-	for(j=0;j<document.getElementsByClassName("subtotal").length;j++){
-		suma=suma+parseInt(document.getElementsByClassName("subtotal")[j].innerHTML)
-	}
-
-	document.getElementsByClassName("precio-total")[0].innerHTML=parseInt(document.getElementsByClassName("precio-total")[0].innerHTML)+suma
-   }
-
-   calculoTotal()
-
-   //borrando todo del localStorage
-
-   document.getElementById("comprar").addEventListener("click",()=>{
-		localStorage.clear()
-		alert("gracias por tu compra :)")
-		location.reload()
    })
-
-
-
-</script>
+ 
+   
+	</script>
+</body>
+<script src="../scripts/carrito.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+
 </html>
 
 

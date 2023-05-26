@@ -345,6 +345,39 @@ input[type="url"] {
   border: 1px solid #ccc;
 }
 
+/* estilos para el formulario de conoce tu proteina ideal */
+#formulario {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#resultado-conoce{
+  margin: auto;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 4fr 4fr 4fr;
+  align-items: center;
+  justify-content: center;
+  
+ 
+}
+
+#resultado-conoce div{
+  margin: 5px;
+  }
+
+#div-boton, #resultado{
+margin-top: 10px;
+text-align: center;
+  }
+
+  #calcular {
+    margin: auto;
+    text-align: center;
+    display: flex;
+  }
+
+
 
 
 

@@ -4,7 +4,7 @@
      
 
  class Protein {
-  constructor(name, weight, servingSize, calories, proteinPerServing,price,imagen,link) {
+  constructor(name, weight, servingSize, calories, proteinPerServing,price,imagen,link,imagen2) {
     this.name = name;
     this.weight = weight; // En libras (lb)
     this.servingSize = servingSize; // En gramos (g)
@@ -13,6 +13,7 @@
     this.price = price; // En pesos colombianos
     this.imagen = imagen; // url imagen
     this.link=link
+    this.imagen2=imagen2
   }
   
 
@@ -37,31 +38,32 @@
 
       //añadiendo nuevas proteinas
 
-     var proteinas = [goldWhey5lb,goldWhey10lb,goldWhey2lb,bipro3lb,bipro2lb,seriousMass, smartGainer,goldIsolate,megaplex,goldIsolate16,seriousMass6,biproclassic];
+     let proteinas = [goldWhey5lb,goldWhey10lb,goldWhey2lb,bipro3lb,bipro2lb,seriousMass, smartGainer,goldIsolate,megaplex,goldIsolate16,seriousMass6,biproclassic];
      
 if (localStorage.getItem("nuevaProteina")){
-     var nuevaProteina=JSON.parse(localStorage.getItem("nuevaProteina"))
+     let nuevaProteina=JSON.parse(localStorage.getItem("nuevaProteina"))
      proteinas.push(nuevaProteina)
 
    
 const divProteina = document.createElement("div");
 divProteina.classList.add("div-proteina");
-divProteina.id = "proteina7";
+divProteina.id = "proteina"+proteinas.length;
 
 
 const img1 = document.createElement("img");
-img1.src = nuevaProteina.imagen;
+img1.src = nuevaProteina.imagen3;
 img1.alt = nuevaProteina.name;
 
 
+
 const img2 = document.createElement("img");
-img2.src = "./images/BI-PRO-2lb-tabla.webp";
+img2.src = nuevaProteina.imagen2
 img2.classList.add("seconday-image");
 
 
 const divPrecio = document.createElement("div");
 divPrecio.classList.add("precio");
-divPrecio.textContent = nuevaProteina.price;
+divPrecio.textContent = nuevaProteina.pricenom;
 
 
 const divBotonesInput = document.createElement("div");
@@ -109,146 +111,74 @@ document.getElementById("proteinas").appendChild(divProteina);
     // el siguiente codigo lo que hace es aumentar o reducir la cantidad de un producto al pulsar los botones
 
     function cambiarCantidad(boton, operacion) {
-      var inputCantidad = boton.parentNode.querySelector(".input-cantidad");
-       var cantidadActual = parseInt(inputCantidad.value);
-      var nuevaCantidad = operacion === "suma" ? cantidadActual + 1 : cantidadActual - 1;
+      let inputCantidad = boton.parentNode.querySelector(".input-cantidad");
+       let cantidadActual = parseInt(inputCantidad.value);
+      let nuevaCantidad = operacion === "suma" ? cantidadActual + 1 : cantidadActual - 1;
       if (nuevaCantidad >= 0) {
          inputCantidad.value = nuevaCantidad;
     }
     }
      
-     var botonesMenos = document.querySelectorAll(".boton-menos");
-    for (var i = 0; i < botonesMenos.length; i++) {
+     let botonesMenos = document.querySelectorAll(".boton-menos");
+    for (let i = 0; i < botonesMenos.length; i++) {
        botonesMenos[i].addEventListener("click", function() {
          cambiarCantidad(this, "resta");
        });
      }
      
-     var botonesMas = document.querySelectorAll(".boton-mas");
-    for (var i = 0; i < botonesMas.length; i++) {
+     let botonesMas = document.querySelectorAll(".boton-mas");
+    for (let i = 0; i < botonesMas.length; i++) {
       botonesMas[i].addEventListener("click", function() {
          cambiarCantidad(this, "suma");
        });
      }
 
-     // el siguiente codigo lo que hará es aumentar el contador en añadir carrito y agregar los productos a la pagina del carrito
-
+     
+    
+      // añadir al carrito
+     
      function anadirAlCarrito() {
-      // Recuperar el valor de contador almacenado en localStorage
-      var contador = parseInt(localStorage.getItem("contadorCarrito")) || 0;
+      let carrito = JSON.parse(sessionStorage.getItem('carrito')) || {
+        contador: 0,
+        proteinas: [],
+        cantidades: [],
+      };
     
-      for (var j = 0; j < document.getElementsByClassName("boton-anadir").length; j++) {
-        (function(j) {
-          document.getElementsByClassName("boton-anadir")[j].addEventListener("click", () => {
+      const botonesAnadir = document.getElementsByClassName('boton-anadir');
+      const contadorCarrito = document.getElementById('contador-carrito');
+      const cantidades = document.getElementsByClassName('input-cantidad');
     
-            if (document.getElementById("contador-carrito").innerHTML == '') {
-              document.getElementById("contador-carrito").innerHTML = 0
-            }
-            document.getElementById("contador-carrito").innerHTML = parseInt(document.getElementById("contador-carrito").innerHTML) + parseInt(document.getElementsByClassName("input-cantidad")[j].value)
-            localStorage.setItem('CantidadProteina'+ contador,parseInt(document.getElementsByClassName("input-cantidad")[j].value))
-            document.getElementsByClassName("input-cantidad")[j].value = 0
-            localStorage.setItem('contadorCarrito', contador + 1);
-            localStorage.setItem('ProteinaCarrito' + contador, JSON.stringify(proteinas[j]));
-           
-            contador++;
-          })
-        })(j);
+      for (let j = 0; j < botonesAnadir.length; j++) {
+        botonesAnadir[j].addEventListener('click', () => {
+          const cantidad = parseInt(cantidades[j].value);
+          const contadorCarritoValor = parseInt(contadorCarrito.innerHTML) || 0;
+    
+          contadorCarrito.innerHTML = contadorCarritoValor + cantidad;
+    
+          carrito.cantidades.push(cantidad);
+          carrito.proteinas.push(proteinas[j]);
+    
+          sessionStorage.setItem('carrito', JSON.stringify(carrito));
+    
+          cantidades[j].value = 0;
+    
+          carrito.contador++;
+        });
       }
     }
     
-
-     anadirAlCarrito();
+    anadirAlCarrito();
+    
 
     
-   
-
-     // codigo para conocer proteina ideal
-function conoceProteina(){
-     var nombre = prompt("Escribe tu nombre por favor");
-var apellido = prompt("Escribe tu apellido por favor");
-
-var masa = "";
-var estatura = "";
-
-
-
-// ciclo while para validar la variable masa
-while (isNaN(parseInt(masa))) {
- masa = prompt("Escribe tu peso en kilogramos; solo numeros");
-}
-
-// ciclo while para validar la variable estatura
-while (isNaN(parseInt(estatura))) {
- estatura = prompt("Escribe tu estatura en cm");
-}
-
-var indice = masa / (estatura / 100) ** 2;
-
-alert("tu indice de masa corporal es: " + indice);
-
-if (indice <= 18.5) {
- alert(nombre + " " + apellido + " estas delgado para tu estatura, te recomendamos una proteina para ganar masa muscular hipercalorica"
- );
-} else if (indice <= 30) {
- alert(nombre + " "+  apellido +  " estas en un peso normal, te recomendamos una proteina para ganar masa muscular y mantener un peso saludable"
- );
-} else if (indice > 30) {
- alert(nombre + " " + apellido +  " estas en sobrepeso, te recomendamos una proteina para mantener masa muscular y perder grasa"
- );
-}
-
-// codigo para escoger las mejores proteinas segun indice de masa corporal
-
-if (indice <= 18.5) {
-  var highCalories= proteinas.filter((el) => el.calories > 120)
-  highCalories.forEach((proteina) =>{
-alert(`nombre: ${proteina.name},
-peso: ${proteina.weight} lb,
-tamaño servicio: ${proteina.servingSize} g,
-calorias: ${proteina.calories} kcal,
-proteina por servicio: ${proteina.proteinPerServing} g,
-relacion proteina/servicio ${proteina.getProteinRatio()}`)
-  })
-  
- } else if (indice <= 30) {
-  var mediumCalories= proteinas.filter((el) => (el.calories >= 110 && el.calories <= 120))
-  mediumCalories.forEach((proteina) =>{
-alert(`nombre: ${proteina.name},
-peso: ${proteina.weight} lb,
-tamaño servicio: ${proteina.servingSize} g,
-calorias: ${proteina.calories} kcal,
-proteina por servicio: ${proteina.proteinPerServing} g,
-relacion proteina/servicio ${proteina.getProteinRatio()}`)
-  })
-  
-  
- } else if (indice > 30) {
-  var lowCalories= proteinas.filter((el) => (el.calories < 110))
-  lowCalories.forEach((proteina) =>{
-alert(`nombre: ${proteina.name},
-peso: ${proteina.weight} lb,
-tamaño servicio: ${proteina.servingSize} g,
-calorias: ${proteina.calories} kcal,
-proteina por servicio: ${proteina.proteinPerServing} g,
-relacion proteina/servicio ${proteina.getProteinRatio()}`)
-      })
-  
- }
-
-
-
-}
-
-
-
-document.getElementById("conoce-proteina").addEventListener("click",conoceProteina)
 
 // buscar proteina por nombre
 
 
 function buscar() {
-  var resultado = proteinas.filter((el) => el.name.includes(document.getElementById("buscador").value.toUpperCase()));
-
+  proteinas
+  let resultado = proteinas.filter((el) => el.name.includes(document.getElementById("buscador").value.toUpperCase()));
+  console.log(resultado)
   if (resultado.length > 0) {
     window.location.href = resultado[0].link;
   }

@@ -10,15 +10,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="../index.html">SPARTAN NUTRITION <img style="width: 40px; height: 40px;" src="../images/LOGO.png" alt=""></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              
-            </ul> 
-          </div>
-        </div>
+         </div>
       </nav>
 	<h1>Formulario para crear objetos Protein</h1>
 
@@ -38,54 +30,25 @@
 		<label for="protein-per-serving-input">Proteína por porción (g):</label>
 		<input type="text" id="protein-per-serving-input" name="protein-per-serving"><br><br>
 
+		<label for="price-input">Precio:</label>
+		<input type="number" id="price-input" name="price"><br><br>
+
 		<label for="price-input"> Nombre y Precio:</label>
-		<input type="text" id="price-input" name="price"><br><br>
+		<input type="text" id="pricenom-input" name="pricenom"><br><br>
 
 		<label for="image-input">URL de la imagen (para pagina index sin comillas):</label>
-		<input type="url" id="image-input" name="image"><br><br>
+		<input type="url" id="image-input" value="./images/Plantilla-zonafit-Promo-25-enero-bipro-2lb-e1605881324437.jpg" name="image"><br><br>
+
+		<label for="image-input">URL de la imagen Tabla nutricional (para pagina index sin comillas):</label>
+		<input type="url" id="image2-input" value="./images/Plantilla-zonafit-Promo-25-enero-bipro-2lb-e1605881324437.jpg" name="image"><br><br>
 
 		<label for="link-input">URL del enlace:(para que el buscador funcione)</label>
 		<input type="url" id="link-input" name="link"><br><br>
 
-		<input type="button" class="btn btn-dark" value="Crear objeto" onclick="crearProteinObjeto()">
+		<input type="button" class="btn btn-dark" value="Crear Proteina" onclick="crearProteinObjeto()">
 	</form>
-
-	<script>
-
-class Protein {
-  constructor(name, weight, servingSize, calories, proteinPerServing,price,imagen,link) {
-    this.name = name;
-    this.weight = weight; // En libras (lb)
-    this.servingSize = servingSize; // En gramos (g)
-    this.calories = calories;
-    this.proteinPerServing = proteinPerServing;
-    this.price = price; // En pesos colombianos
-    this.imagen = imagen; // url imagen
-    this.link=link
-  }
-  
-
-  getProteinRatio() {
-    return this.proteinPerServing / this.servingSize;
-  }
-}
-		function crearProteinObjeto() {
-			const name = document.getElementById("name-input").value;
-			const weight = document.getElementById("weight-input").value;
-			const servingSize = document.getElementById("serving-size-input").value;
-			const calories = document.getElementById("calories-input").value;
-			const proteinPerServing = document.getElementById("protein-per-serving-input").value;
-			const price = document.getElementById("price-input").value;
-			const imagen = document.getElementById("image-input").value;
-			const link = document.getElementById("link-input").value;
-
-			const proteinObjeto = new Protein(name, weight, servingSize, calories, proteinPerServing, price, imagen, link);
-			localStorage.setItem('nuevaProteina', JSON.stringify(proteinObjeto))
-			
-
-			console.log(proteinObjeto);
-		}
-	</script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="../scripts/crearProteina.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 </body>
 </html>

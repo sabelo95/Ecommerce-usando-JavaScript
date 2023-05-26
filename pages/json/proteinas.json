@@ -1,0 +1,123 @@
+[
+  {
+    "name": "GOLD WHEY 5 LB",
+    "weight": 5,
+    "servings": 30,
+    "calories": 120,
+    "proteinPerServing": 24,
+    "price": 369000,
+    "image": "../images/gold-standard-5-lb-1.webp",
+    "id": "#proteina1"
+  },
+  {
+    "name": "GOLD WHEY 10 LB",
+    "weight": 10,
+    "servings": 30,
+    "calories": 120,
+    "proteinPerServing": 24,
+    "price": 649000,
+    "image": "../images/gold-standard-10-lb-1.webp",
+    "id": "#proteina2"
+  },
+  {
+    "name": "GOLD WHEY 2 lb",
+    "weight": 2,
+    "servings": 30,
+    "calories": 120,
+    "proteinPerServing": 24,
+    "price": 196000,
+    "image": "../images/gold-standard-2-lb-1.webp",
+    "id": "#proteina3"
+  },
+  {
+    "name": "SERIOUS MASS",
+    "weight": 12,
+    "servings": 334,
+    "calories": 1250,
+    "proteinPerServing": 50,
+    "price": 369000,
+    "image": "../images/serious-mass-12-lb.webp",
+    "id": "#proteina4"
+  },
+  {
+    "name": "BIPRO 3 LB",
+    "weight": 3,
+    "servings": 25,
+    "calories": 80,
+    "proteinPerServing": 20,
+    "price": 200000,
+    "image": "../images/BI-PRO-3lb-300x300.webp",
+    "id": "#proteina5"
+  },
+  {
+    "name": "BIPRO 2 LB",
+    "weight": 2,
+    "servings": 25,
+    "calories": 80,
+    "proteinPerServing": 20,
+    "price": 150000,
+    "image": "../images/Plantilla-zonafit-Promo-25-enero-bipro-2lb-e1605881324437.jpg",
+    "id": "#proteina6"
+  },
+  {
+    "name": "BIPRO CLASSIC 2 LB",
+    "weight": 2,
+    "servings": 25,
+    "calories": 80,
+    "proteinPerServing": 20,
+    "price": 130000,
+    "image": "../images/bipro-classic-2-lb.webp",
+    "id": "#proteina7"
+  },
+  {
+    "name": "GOLD ISOLATE 5 LB",
+    "weight": 5,
+    "servings": 31,
+    "calories": 110,
+    "proteinPerServing": 25,
+    "price": 429000,
+    "image": "../images/isolate-5-lb.webp",
+    "id": "#proteina8"
+  },
+  {
+    "name": "SMARTGAINER 13 lb",
+    "weight": 13,
+    "servings": 100,
+    "calories": 920,
+    "proteinPerServing": 44,
+    "price": 250000,
+    "image": "../images/smart-gainer-13-lb-2.webp",
+    "id": "#proteina9"
+  },
+  {
+    "name": "GOLD ISOLATE 1.6 LB",
+    "weight": 1.6,
+    "servings": 31,
+    "calories": 110,
+    "proteinPerServing": 25,
+    "price": 190000,
+    "image": "../images/bipro-classic-2-lb.webp",
+    "id": "#proteina10"
+  },
+  {
+    "name": "MEGAPLEX",
+    "weight": 10,
+    "servings": 150,
+    "calories": 200,
+    "proteinPerServing": 44,
+    "price": 240000,
+    "image": "../images/megaplex-10-lb-2.webp",
+    "id": "#proteina11"
+  },
+  {
+    "name": "SERIOUS MASS 6 LB",
+    "weight": 6,
+    "servings": 334,
+    "calories": 1250,
+    "proteinPerServing": 50,
+    "price": 280000,
+    "image": "../images/serious-mas-6-lb.webp",
+    "id": "#proteina12"
+  }
+]
+  
