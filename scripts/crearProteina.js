@@ -47,6 +47,10 @@ class Protein {
           })
 
           document.getElementById("protein-form").reset() 
+
+          setTimeout(function() {
+            location.href="../index.html";
+          }, 2000);
   
           
           }
